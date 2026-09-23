@@ -1,0 +1,715 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<title>Epic Cart Shopping Website</title> 
+
+ 
+
+<script> 
+
+function allowDrop(ev) 
+
+{ 
+
+    ev.preventDefault(); 
+
+} 
+
+function drag(ev) 
+
+{ 
+
+    ev.dataTransfer.setData("text", ev.target.id); 
+
+} 
+
+ 
+
+function drop(ev) 
+
+{ 
+
+    ev.preventDefault(); 
+
+    var data = ev.dataTransfer.getData("text"); 
+
+    var item = document.getElementById(data); 
+
+     
+
+    var clone = item.cloneNode(true); 
+
+     
+
+    clone.id = "cart-" + data; 
+
+     
+
+    ev.target.appendChild(clone); 
+
+     
+
+    alert("Product Added to Cart"); 
+
+} 
+
+ 
+
+function getLocation() 
+
+{ 
+
+    if(navigator.geolocation) 
+
+    { 
+
+        navigator.geolocation.getCurrentPosition(showPosition); 
+
+    } 
+
+    else 
+
+    { 
+
+        document.getElementById("location").innerHTML="Geolocation not Supported"; 
+
+    } 
+
+} 
+
+ 
+
+function showPosition(position) 
+
+{ 
+
+    document.getElementById("location").innerHTML= 
+
+    "Latitude : " + position.coords.latitude + 
+
+    "<br>Longitude : " + position.coords.longitude; 
+
+} 
+
+</script> 
+
+ 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+<center> 
+
+<h1>EPIC CART SHOPPING WEBSITE</h1> 
+
+<p>Advanced Online Shopping Website</p> 
+
+<audio controls> 
+
+  <source src="online shop.mp3" type="audio/mpeg"> 
+
+  Your browser does not support the audio element. 
+
+</audio> 
+
+</center> 
+
+ 
+
+<hr> 
+
+ 
+
+<table border="1" width="100%" cellpadding="10"> 
+
+ 
+
+<tr> 
+
+ 
+
+<!-- LEFT COLUMN --> 
+
+ 
+
+<td width="30%" valign="top"> 
+
+ 
+
+<h2>Product Categories</h2> 
+
+ 
+
+<img src="category.jpg" width="100%" height="100%" 
+
+usemap="#shopmap"> 
+
+ 
+
+<map name="shopmap"> 
+
+ 
+
+<area shape="rect" 
+
+coords="200,200,200,200" 
+
+href="https://www.amazon.in"> 
+
+ 
+
+<area shape="rect" 
+
+coords="200,200,200,200" 
+
+href="#Laptop"> 
+
+ 
+
+<area shape="rect" 
+
+coords="200,200,200,200" 
+
+href="#Smartwatch"> 
+
+ 
+
+</map> 
+
+ 
+
+<h3>Offers</h3> 
+
+ 
+
+<ul> 
+
+<li>20% Discount on Mobiles</li> 
+
+<li>Free Shipping</li> 
+
+<li>Festival Sale</li> 
+
+<li>Cashback Available</li> 
+
+</ul> 
+
+ 
+
+<h3>Top Brands</h3> 
+
+<ol> 
+
+<li>Samsung</li> 
+
+<li>Apple</li> 
+
+<li>Dell</li> 
+
+<li>HP</li> 
+
+<li>Boat</li> 
+
+</ol> 
+
+ 
+
+<h3>Product Category</h3> 
+
+<input list="category"> 
+
+ 
+
+<datalist id="category"> 
+
+<option value="Mobile Phone"> 
+
+<option value="Laptop"> 
+
+<option value="Watch"> 
+
+</datalist> 
+
+ 
+
+<h3>Display Type</h3> 
+
+ 
+
+<ol> 
+
+<li>Led</li> 
+
+<li>Oled</li> 
+
+<li>Qled</li> 
+
+</ol> 
+
+ 
+
+ 
+
+</td> 
+
+ 
+
+<!-- CENTER COLUMN --> 
+
+ 
+
+<td width="40%" valign="top"> 
+
+ 
+
+<h2 id="electronics">Products</h2> 
+
+ 
+
+<p><h3>Smart Phone</h3></p> 
+
+ 
+
+<img id="phone" 
+
+src="m1.jpg" width="200" height="200"  
+
+draggable="true" 
+
+ondragstart="drag(event)"> 
+
+ 
+
+<img id="phone" 
+
+src="w2.jpg" width="200" height="200"  
+
+draggable="true" 
+
+ondragstart="drag(event)"> 
+
+ 
+
+<img id="phone" 
+
+src="w3.jpg" width="150" height="200"  
+
+draggable="true" 
+
+ondragstart="drag(event)"> 
+
+ 
+
+<p>Price : ₹30,000</p> 
+
+ 
+
+<hr> 
+
+ 
+
+<p><b><h3>Laptop</h3></b></p> 
+
+ 
+
+<img id="laptop" 
+
+src="lap1.jpg" width="200" height="130"  
+
+draggable="true" 
+
+ondragstart="drag(event)"> 
+
+ 
+
+<img id="laptop" 
+
+src="lap2.jpg" width="150" height="150"  
+
+draggable="true" 
+
+ondragstart="drag(event)"> 
+
+ 
+
+<img id="laptop" 
+
+src="lap3.jpg" width="200" height="130"  
+
+draggable="true" 
+
+ondragstart="drag(event)"> 
+
+ 
+
+<p>Price : ₹60,000</p> 
+
+ 
+
+<hr> 
+
+ 
+
+<p><b><h3>Smart Watch</h3></b></p> 
+
+ 
+
+<img id="watch"  
+
+     src="sw1.jpg" width="200" height="130"  
+
+     draggable="true"  
+
+     ondragstart="drag(event)"> 
+
+ 
+
+<img id="watch"  
+
+     src="sw2.jpg" width="180" height="130"  
+
+     draggable="true"  
+
+     ondragstart="drag(event)"> 
+
+ 
+
+<img id="watch"  
+
+     src="sw3.jpg" width="200" height="130"  
+
+     draggable="true"  
+
+     ondragstart="drag(event)"> 
+
+ 
+
+<p>Price : ₹5,000</p> 
+
+ 
+
+<hr> 
+
+ 
+
+<h2>Shopping Cart</h2> 
+
+ 
+
+<div 
+
+ondrop="drop(event)" 
+
+ondragover="allowDrop(event)" 
+
+style="height:150px;"> 
+
+ 
+
+<b>Drop Products Here</b> 
+
+ 
+
+</div> 
+
+ 
+
+</td> 
+
+ 
+
+<!-- RIGHT COLUMN --> 
+
+ 
+
+<td width="30%" valign="top"> 
+
+ 
+
+<h2>Product Video</h2> 
+
+ 
+
+<video width="300" controls> 
+
+ 
+
+<source src="https://www.w3schools.com/html/mov_bbb.mp4" 
+
+type="video/mp4"> 
+
+ 
+
+</video> 
+
+ 
+
+<hr> 
+
+ 
+
+<h2>Store Location</h2> 
+
+ 
+
+<button onclick="getLocation()"> 
+
+Show My Location 
+
+</button> 
+
+ 
+
+<p id="location"></p> 
+
+ 
+
+<hr> 
+
+ 
+
+<h2>Customer Reviews</h2> 
+
+ 
+
+<p>⭐⭐⭐⭐⭐ Excellent Product</p> 
+
+ 
+
+<p>⭐⭐⭐⭐ Fast Delivery</p> 
+
+ 
+
+<p>⭐⭐⭐⭐⭐ Good Quality</p> 
+
+ 
+
+<hr> 
+
+ 
+
+<h2>Contact</h2> 
+
+ 
+
+<p>Email : shopping@gmail.com</p> 
+
+ 
+
+<p>Phone : 9876543210</p> 
+
+ 
+
+</td> 
+
+ 
+
+</tr> 
+
+ 
+
+</table> 
+
+ 
+
+<hr> 
+
+ 
+
+<center> 
+
+ 
+
+<h2>Purchase Form</h2> 
+
+ 
+
+<form> 
+
+ 
+
+<table cellpadding="8"> 
+
+ 
+
+<tr> 
+
+<td>Name</td> 
+
+<td><input type="text" required></td> 
+
+</tr> 
+
+ 
+
+<tr> 
+
+<td>Email</td> 
+
+<td><input type="email" required></td> 
+
+</tr> 
+
+ 
+
+<tr> 
+
+<td>Phone</td> 
+
+<td><input type="tel" pattern="[0-9]{10}" required></td> 
+
+</tr> 
+
+ 
+
+<tr> 
+
+<td>Date of Purchase</td> 
+
+<td><input type="date"></td> 
+
+</tr> 
+
+ 
+
+<tr> 
+
+<td>Quantity</td> 
+
+<td><input type="number" min="1" max="10"></td> 
+
+</tr> 
+
+ 
+
+ 
+
+<tr> 
+
+<td>Payment Method</td> 
+
+ 
+
+<td> 
+
+ 
+
+<select> 
+
+ 
+
+<option>Cash on Delivery</option> 
+
+<option>UPI</option> 
+
+<option>Debit Card</option> 
+
+<option>Credit Card</option> 
+
+ 
+
+</select> 
+
+ 
+
+</td> 
+
+ 
+
+</tr> 
+
+ 
+
+<tr> 
+
+ 
+
+<td>Delivery Address</td> 
+
+ 
+
+<td> 
+
+ 
+
+<textarea rows="4" cols="30"></textarea> 
+
+ 
+
+</td> 
+
+ 
+
+</tr> 
+
+ 
+
+<tr> 
+
+ 
+
+<td colspan="2" align="center"> 
+
+ 
+
+<input type="submit" value="Place Order"> 
+
+ 
+
+<input type="reset" value="Reset"> 
+
+ 
+
+</td> 
+
+ 
+
+</tr> 
+
+ 
+
+</table> 
+
+ 
+
+</form> 
+
+ 
+
+</center> 
+
+ 
+
+<hr> 
+
+ 
+
+<center> 
+
+ 
+
+<h3>Thank You for Visiting Our Online Shopping Website</h3> 
+
+ 
+
+<p>&#169 2026 Online Shopping Store</p> 
+
+ 
+
+</center> 
+
+ 
+
+</body> 
+
+</html> 
+
+ 
